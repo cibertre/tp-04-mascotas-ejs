@@ -1,0 +1,52 @@
+[
+ {
+ "id": 1,
+ "nombre": "Viggo",
+ "especie": "Perro",
+ "raza": "Rottweiler",
+ "edad": 4,
+ "descripcion": "Viggo es un perro muy amigable y le encanta jugar con los niños.",
+ "estado": "Adoptado",
+ "imagen": "Viggo.png"
+ },
+ {
+ "id": 2,
+ "nombre": "Luna",
+ "especie": "Perro",
+ "raza": "Caniche micro Toy",
+ "edad": 6,
+ "descripcion": "Luna es una perra muy juguetona y le encanta correr en el parque.",
+ "estado": "En adopción",
+ "imagen": "Luna.png"
+ },
+ {
+ "id": 3,
+ "nombre": "Kira",
+ "especie": "Gato",
+ "raza": "Siames",
+ "edad": 3,
+ "descripcion": "Kira es una gata muy tranquila y sociable, le encanta dormir al sol!.",
+ "estado": "En adopción",
+ "imagen": "Kira.png"
+ },
+ {
+ "id": 4,
+ "nombre": "Nala",
+ "especie": "Conejo",
+ "raza": "Mini Lop",
+ "edad": 5,
+ "descripcion": "Nala es un coneja muy dulce y le encanta que la acaricien.",
+ "estado": "Reservada",
+ "imagen": "Nala.png"
+ },
+ {
+ "id": 5,
+ "nombre": "Coco",
+ "especie": "Cobayo",
+ "raza": "Americana",
+ "edad": 10,
+ "descripcion": "Coco es un cobayo muy juguetón y le encanta jugar con los niños.",
+ "estado": "Adoptado",
+ "imagen": "Coco.png"
+ }
+]

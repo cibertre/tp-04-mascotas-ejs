@@ -1,0 +1,60 @@
+<section class="panel-formulario">
+  <p class="etiqueta">NUEVA MASCOTA</p>
+  <h1><%= titulo %></h1>
+
+  <% if (error) { %>
+    <p class="error" role="alert"><%= error %></p>
+  <% } %>
+
+  <form action="/mascotas" method="post" class="formulario">
+    <label for="nombre">Nombre</label>
+    <input 
+      id="nombre" 
+      name="nombre" 
+      placeholder="Ej. Firulais, Michi..." 
+      value="<%= valores.nombre ?? '' %>" 
+      required
+    >
+
+    <label for="especie">Especie</label>
+    <input 
+      id="especie" 
+      name="especie" 
+      placeholder="Ej. Perro, Gato, Conejo..." 
+      value="<%= valores.especie ?? '' %>" 
+      required
+    >
+
+    <label for="raza">Raza</label>
+    <input 
+      id="raza" 
+      name="raza" 
+      placeholder="Ej. Mestizo, Golden Retriever, Siames..." 
+      value="<%= valores.raza ?? '' %>" 
+      required
+    >
+
+    <label for="edad">Edad (años)</label>
+    <input 
+      id="edad" 
+      name="edad" 
+      type="number" 
+      min="0" 
+      step="1" 
+      placeholder="Ej. 2" 
+      value="<%= valores.edad ?? '' %>" 
+      required
+    >
+
+    <label for="descripcion">Descripción</label>
+    <textarea 
+      id="descripcion" 
+      name="descripcion" 
+      rows="5" 
+      placeholder="Contá brevemente su historia, carácter o necesidades especiales..." 
+      required
+    ><%= valores.descripcion ?? '' %></textarea>
+
+    <button type="submit">Guardar mascota</button>
+  </form>
+</section>
