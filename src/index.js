@@ -16,6 +16,17 @@ async function main() {
     app.use(express.static(path.join(__dirname, "..", "public")));
     app.use(express.urlencoded({ extended: false }));
 
+    // MONITOR DE SOLICITUDES
+    app.use((req, res, next) => {
+        res.on("finish", () => {
+            console.log(
+                `${req.method} ${req.originalUrl} → ${res.statusCode}`
+            );
+        });
+
+        next();
+    });
+
     app.get("/api/mascotas", (req, res) => {
         res.json(mascotas);
     });
@@ -25,11 +36,11 @@ async function main() {
     });
 
     app.get("/mascotas", (req, res) => {
-    // Si el JSON está vacío o no tiene datos, pasamos un array vacío [] como respaldo
-    res.render("mascotas/lista", {
-        titulo: "Mascotas en adopción",
-        mascotas: mascotas || []
-    });
+        // Si el JSON está vacío o no tiene datos, pasamos un array vacío [] como respaldo
+        res.render("mascotas/lista", {
+            titulo: "Mascotas en adopción",
+            mascotas: mascotas || []
+        });
     });
 
     app.get("/mascotas/nueva", (req, res) => {
@@ -56,19 +67,23 @@ async function main() {
     });
 
     app.post("/mascotas", (req, res) => {
-        const { nombre, especie, raza, edad, descripcion } = req.body;
+        const { nombre, especie, raza, edad, estado, descripcion } = req.body;
         const nombreLimpio = String(nombre ?? "").trim();
         const especieLimpia = String(especie ?? "").trim();
         const razaLimpia = String(raza ?? "").trim();
         const descripcionLimpia = String(descripcion ?? "").trim(); // <-- Agregado
         const edadNumerica = Number(edad);
+        const estadoLimpio = String(estado ?? "").trim();
 
         if (
             !nombreLimpio ||
             !especieLimpia ||
             !razaLimpia ||
             !Number.isFinite(edadNumerica) ||
-            edadNumerica <= 0
+            !estadoLimpio ||
+            edadNumerica <= 0 ||
+            !descripcionLimpia
+
         ) {
             return res.status(400).render("mascotas/nueva", {
                 titulo: "Nueva mascota",
@@ -88,7 +103,9 @@ async function main() {
             especie: especieLimpia,
             raza: razaLimpia,
             edad: edadNumerica,
+            estado: estadoLimpio,
             descripcion: descripcionLimpia,
+            imagen: "sin-foto.png",
         });
 
         res.redirect("/mascotas");

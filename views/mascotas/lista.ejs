@@ -1,10 +1,15 @@
 <header class="cabecera-pagina">
-    <div>
-        <p class="etiqueta">MASCOTAS EN ADOPCION</p>
+    <div class="cabecera-texto">
         <h1><%= titulo %></h1>
-        <p class="subtitulo">Encontrá un compañero que está esperando un hogar.</p>
+
+        <p class="subtitulo">
+            Encontrá un compañero que está esperando un hogar.
+        </p>
     </div>
-    <a class="boton" href="/mascotas/nueva">+ Agregar mascota</a>
+
+    <a class="boton boton-agregar" href="/mascotas/nueva">
+        <span>＋</span> Agregar mascota
+    </a>
 </header>
 
 <% if (!mascotas || mascotas.length === 0) { %>
@@ -26,7 +31,7 @@
                     <span class="chip"><%= mascota.especie %></span>
                     <h2><%= mascota.nombre %></h2>
                     <p class="raza"><%= mascota.raza %></p>
-                    <div class="edad">🐾 <%= mascota.edad %> año<%= mascota.edad !== 1 ? "s" : "" %></div>
+                    <div class="edad"> Edad <%= mascota.edad %> año<%= mascota.edad !== 1 ? "s" : "" %></div>
                     <p class="descripcion"><%= mascota.descripcion %></p>
                     <a class="boton-secundario" href="/mascotas/<%= mascota.id %>">Ver detalle</a>
                 </div>

@@ -10,10 +10,18 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
   "dependencies": {
     "ejs": "^6.0.1",
     "express": "^5.2.1",
     "express-ejs-layouts": "^2.5.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cibertre/tp-04-mascotas-ejs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cibertre/tp-04-mascotas-ejs/issues"
+  },
+  "homepage": "https://github.com/cibertre/tp-04-mascotas-ejs#readme",
+  "description": ""
 }

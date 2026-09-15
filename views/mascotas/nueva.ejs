@@ -1,60 +1,96 @@
 <section class="panel-formulario">
-  <p class="etiqueta">NUEVA MASCOTA</p>
-  <h1><%= titulo %></h1>
 
-  <% if (error) { %>
-    <p class="error" role="alert"><%= error %></p>
-  <% } %>
+    <div class="form-card">
 
-  <form action="/mascotas" method="post" class="formulario">
-    <label for="nombre">Nombre</label>
-    <input 
-      id="nombre" 
-      name="nombre" 
-      placeholder="Ej. Firulais, Michi..." 
-      value="<%= valores.nombre ?? '' %>" 
-      required
-    >
+        <p class="etiqueta"></p>
+        <h1><%= titulo %></h1>
+        <p class="subtitulo">
+            Registrá una nueva mascota para que encuentre un hogar.
+        </p>
 
-    <label for="especie">Especie</label>
-    <input 
-      id="especie" 
-      name="especie" 
-      placeholder="Ej. Perro, Gato, Conejo..." 
-      value="<%= valores.especie ?? '' %>" 
-      required
-    >
+        <% if (error) { %>
+            <p class="error" role="alert"><%= error %></p>
+        <% } %>
 
-    <label for="raza">Raza</label>
-    <input 
-      id="raza" 
-      name="raza" 
-      placeholder="Ej. Mestizo, Golden Retriever, Siames..." 
-      value="<%= valores.raza ?? '' %>" 
-      required
-    >
+        <form action="/mascotas" method="post" class="formulario-grid">
 
-    <label for="edad">Edad (años)</label>
-    <input 
-      id="edad" 
-      name="edad" 
-      type="number" 
-      min="0" 
-      step="1" 
-      placeholder="Ej. 2" 
-      value="<%= valores.edad ?? '' %>" 
-      required
-    >
+            <div class="campo">
+                <label for="nombre">Nombre</label>
+                <input
+                    id="nombre"
+                    name="nombre"
+                    placeholder="Ej. Viggo"
+                    value="<%= valores.nombre ?? '' %>"
+                    required
+                >
+            </div>
 
-    <label for="descripcion">Descripción</label>
-    <textarea 
-      id="descripcion" 
-      name="descripcion" 
-      rows="5" 
-      placeholder="Contá brevemente su historia, carácter o necesidades especiales..." 
-      required
-    ><%= valores.descripcion ?? '' %></textarea>
+            <div class="campo">
+                <label for="especie">Especie</label>
+                <input
+                    id="especie"
+                    name="especie"
+                    placeholder="Perro, Gato..."
+                    value="<%= valores.especie ?? '' %>"
+                    required
+                >
+            </div>
 
-    <button type="submit">Guardar mascota</button>
-  </form>
+            <div class="campo">
+                <label for="raza">Raza</label>
+                <input
+                    id="raza"
+                    name="raza"
+                    placeholder="Golden, Siamés..."
+                    value="<%= valores.raza ?? '' %>"
+                    required
+                >
+            </div>
+
+            <div class="campo">
+                <label for="edad">Edad</label>
+                <input
+                    id="edad"
+                    name="edad"
+                    type="number"
+                    min="0"
+                    step="1"
+                    placeholder="2"
+                    value="<%= valores.edad ?? '' %>"
+                    required
+                >
+            </div>
+
+            <div class="campo campo-completo">
+                <label for="estado">Estado</label>
+                <select id="estado" name="estado" required>
+                    <option value="">Seleccionar estado...</option>
+                    <option value="En adopción" <%= valores.estado === "En adopción" ? "selected" : "" %>>En adopción</option>
+                    <option value="Reservada" <%= valores.estado === "Reservada" ? "selected" : "" %>>Reservada</option>
+                    <option value="Adoptado" <%= valores.estado === "Adoptado" ? "selected" : "" %>>Adoptado</option>
+                </select>
+            </div>
+
+            <div class="campo campo-completo">
+                <label for="descripcion">Descripción</label>
+                <textarea
+                    id="descripcion"
+                    name="descripcion"
+                    rows="5"
+                    placeholder="Contá brevemente su historia, carácter o necesidades especiales..."
+                    required
+                ><%= valores.descripcion ?? '' %></textarea>
+            </div>
+
+            <div class="acciones campo-completo">
+                <a href="/mascotas" class="btn-cancelar">Cancelar</a>
+                <button type="submit" class="boton">
+                    Guardar mascota
+                </button>
+            </div>
+
+        </form>
+
+    </div>
+
 </section>
