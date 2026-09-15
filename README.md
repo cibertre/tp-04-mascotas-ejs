@@ -256,9 +256,10 @@ También se puede comprobar el funcionamiento de la ruta dinámica ingresando un
 
 
 http://localhost:3000/mascotas/99
-```
+
 
 La aplicación busca el id recibido y, al no encontrar coincidencia, responde con estado "404" y muestra la vista "no-encontrado".
+
 
 ** Prueba con el arreglo vacío **
 
